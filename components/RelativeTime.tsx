@@ -1,20 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { relTime } from "@/lib/time";
 
-export function relTime(iso: string | null): string {
-  if (!iso) return "";
-  const then = Date.parse(iso);
-  if (!Number.isFinite(then)) return "";
-  const mins = Math.max(0, Math.round((Date.now() - then) / 60000));
-  if (mins < 1) return "just now";
-  if (mins < 60) return mins + "m ago";
-  const h = Math.floor(mins / 60);
-  return h + "h " + (mins % 60) + "m ago";
-}
-
-// Relative last-check-in label. Renders the server-computed string first
-// (no hydration mismatch), then refreshes itself every 30 seconds.
+// Relative last-check-in label. The server computes `initial` once and passes
+// it down as a plain prop, so the first client render is byte-identical to the
+// server HTML. The interval starts only after mount and refreshes every 30s.
 export default function RelativeTime({ iso, initial }: { iso: string; initial: string }) {
   const [label, setLabel] = useState(initial);
   useEffect(() => {

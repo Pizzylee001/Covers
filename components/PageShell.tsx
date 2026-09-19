@@ -1,12 +1,44 @@
 "use client";
 
 import { useState } from "react";
-import type { City, Snapshot } from "@/lib/covers";
-import RelativeTime, { relTime } from "./RelativeTime";
+import RelativeTime from "./RelativeTime";
 import RetryButton from "./RetryButton";
 import Ticker from "./Ticker";
 
+// Serializable bundle computed on the server in app/page.tsx: plain data plus
+// every relative-time label already resolved. The client hydrates from this,
+// so its first render matches the server HTML with no clock skew.
+export type BundleVenue = {
+  name: string;
+  cuisine: string;
+  visits: number;
+  last: string | null;
+  lastLabel: string;
+};
+export type BundleNeighborhood = {
+  name: string;
+  covers: number;
+  venues: BundleVenue[];
+};
+export type BundleCity = {
+  name: string;
+  covers: number;
+  neighborhoods: BundleNeighborhood[];
+};
+export type PageBundle = {
+  stale: boolean;
+  generatedAt: string;
+  windowMinutes: number;
+  total: number;
+  fetchedAt: string;
+  pulledLabel: string;
+  cities: BundleCity[];
+};
+
 const fmt = (n: number) => n.toLocaleString("en-US");
+
+// "1 cover" when singular, "N covers" otherwise.
+const coversWord = (n: number) => (n === 1 ? "cover" : "covers");
 
 const cityLabel = (name: string) => name.replace(/, [A-Z]{2}$/, "");
 
@@ -21,15 +53,15 @@ const genAt = (iso: string) =>
     minute: "2-digit",
   });
 
-type Props = { snapshot: Snapshot | null };
+type Props = { bundle: PageBundle | null };
 
-export default function PageShell({ snapshot }: Props) {
+export default function PageShell({ bundle }: Props) {
   const [cityIdx, setCityIdx] = useState(0);
   const [nonce, setNonce] = useState(0);
 
-  const data = snapshot?.data ?? null;
-  const stale = snapshot?.stale ?? false;
-  const city: City | null =
+  const stale = bundle?.stale ?? false;
+  const data = bundle;
+  const city: BundleCity | null =
     data && data.cities.length
       ? data.cities[Math.min(cityIdx, data.cities.length - 1)]
       : null;
@@ -39,8 +71,8 @@ export default function PageShell({ snapshot }: Props) {
     setNonce((n) => n + 1); // re-tick the number, re-grow the meters
   };
 
-  const liveLabel = !snapshot ? "Offline" : stale ? "Stale" : "Live";
-  const dotClass = stale || !snapshot ? "dot stale" : "dot";
+  const liveLabel = !bundle ? "Offline" : stale ? "Stale" : "Live";
+  const dotClass = stale || !bundle ? "dot stale" : "dot";
 
   return (
     <>
@@ -86,7 +118,7 @@ export default function PageShell({ snapshot }: Props) {
           )}
         </section>
 
-        {!snapshot && (
+        {!bundle && (
           <div className="statebox" role="status">
             <b>Can&apos;t reach Flynet right now.</b>
             <p>
@@ -97,16 +129,12 @@ export default function PageShell({ snapshot }: Props) {
           </div>
         )}
 
-        {snapshot && stale && (
+        {bundle && stale && (
           <div className="statebox" role="status">
             <b>Live feed unreachable.</b>
             <p>
-              Showing data pulled{" "}
-              <RelativeTime
-                iso={snapshot.fetchedAt}
-                initial={relTime(snapshot.fetchedAt)}
-              />
-              . The numbers below are real, just not this minute&apos;s.
+              Showing data pulled {bundle.pulledLabel}. The numbers below are real,
+              just not this minute&apos;s.
             </p>
             <RetryButton />
           </div>
@@ -161,8 +189,8 @@ export default function PageShell({ snapshot }: Props) {
               , built on Blackbird.
             </span>
             <span suppressHydrationWarning>
-              {snapshot
-                ? `Data pulled ${genAt(snapshot.data.generatedAt)}`
+              {bundle
+                ? `Data pulled ${genAt(bundle.generatedAt)}`
                 : "No live data yet."}
             </span>
           </div>
@@ -174,7 +202,7 @@ export default function PageShell({ snapshot }: Props) {
 
 // Board: neighborhood sections for the selected city. Keyed by city name so a
 // city switch re-runs the meter entrance, matching the approved preview.
-function Board({ city, nonce }: { city: City; nonce: number }) {
+function Board({ city, nonce }: { city: BundleCity; nonce: number }) {
   const maxHood = city.neighborhoods.reduce((m, h) => Math.max(m, h.covers), 0);
   return (
     <div key={`${city.name}-${nonce}`}>
@@ -189,7 +217,7 @@ function Board({ city, nonce }: { city: City; nonce: number }) {
               </div>
               <div className="count">
                 {fmt(h.covers)}
-                <small>covers</small>
+                <small>{coversWord(h.covers)}</small>
               </div>
             </div>
             <div
@@ -212,8 +240,8 @@ function Board({ city, nonce }: { city: City; nonce: number }) {
                   </span>
                   <span className="cu">{v.cuisine}</span>
                   <span className="v">
-                    <b>{v.visits}</b> covers
-                    <RelativeTime iso={v.last ?? ""} initial={relTime(v.last)} />
+                    <b>{v.visits}</b> {coversWord(v.visits)}
+                    <RelativeTime iso={v.last ?? ""} initial={v.lastLabel} />
                   </span>
                 </a>
               ))}
