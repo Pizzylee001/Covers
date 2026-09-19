@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Covers | where the city is eating now</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#F3EEE2; --paper:#FBF8F1; --ink:#0F241B; --pine:#16352A; --moss:#2C5741;
+    --sage:#55645A; --amber:#8F570E; --amber-fill:#D98A2B; --ember:#B23A14;
+    --line:rgba(15,36,27,.14); --line-strong:rgba(15,36,27,.28);
+    --dot:rgba(15,36,27,.10);
+    --r-block:14px; --r-ctl:9px;
+    --maxw:1180px;
+    --ease:cubic-bezier(.16,1,.3,1);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bone); color:var(--ink);
+    font-family:Manrope,system-ui,sans-serif; font-size:16px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:radial-gradient(var(--dot) 1px, transparent 1px);
+    background-size:26px 26px; opacity:.55;
+  }
+  body::after{
+    content:""; position:fixed; z-index:0; pointer-events:none;
+    top:-30vh; right:-20vw; width:80vw; height:80vh;
+    background:radial-gradient(closest-side, rgba(217,138,43,.20), transparent 70%);
+    filter:blur(10px);
+  }
+  .wrap{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:4px}
+
+  /* Masthead nav: N6 */
+  header.masthead{position:sticky; top:0; z-index:20; background:rgba(243,238,226,.82); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+  .masthead .wrap{display:flex; align-items:center; gap:20px; height:66px}
+  .wordmark{font-family:Syne,sans-serif; font-weight:800; font-size:21px; letter-spacing:-.02em; text-transform:uppercase; text-decoration:none; display:flex; align-items:center; gap:8px}
+  .wordmark .mark{width:12px;height:12px;background:var(--ink); border-radius:50% 50% 50% 0; transform:rotate(-45deg); display:inline-block}
+  .masthead .spacer{flex:1}
+  .live{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--pine)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--ember); box-shadow:0 0 0 0 rgba(178,58,20,.5); animation:pulse 2.4s var(--ease) infinite}
+  .powered{font-size:12px; color:var(--sage); text-decoration:none; border-bottom:1px solid var(--line-strong)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(178,58,20,.45)}70%{box-shadow:0 0 0 9px rgba(178,58,20,0)}100%{box-shadow:0 0 0 0 rgba(178,58,20,0)}}
+
+  /* Hanging hero: asymmetric, not centered */
+  .hero{padding:54px 0 30px; display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:40px; align-items:end}
+  .hero h1{font-family:Syne,sans-serif; font-weight:800; font-size:clamp(2.4rem,5.2vw,4.1rem); line-height:1.02; letter-spacing:-.035em; margin:0}
+  .hero h1 .unmask{display:block; overflow:hidden}
+  .hero h1 .unmask > span{display:block; transform:translateY(105%); animation:rise .9s var(--ease) forwards}
+  .hero h1 .unmask:nth-child(2) > span{animation-delay:.08s}
+  @keyframes rise{to{transform:translateY(0)}}
+  .hero p.lede{font-size:17px; line-height:1.55; color:var(--sage); margin:16px 0 0; max-width:46ch}
+  .ticker{justify-self:end; text-align:right; border-left:1px solid var(--line-strong); padding-left:26px}
+  .ticker .num{font-family:Syne,sans-serif; font-weight:800; font-size:clamp(3rem,7vw,5.4rem); line-height:.94; letter-spacing:-.04em; font-variant-numeric:tabular-nums; color:var(--pine)}
+  .ticker .lbl{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sage); margin-top:8px}
+  .ticker .win{font-size:13px; color:var(--sage); margin-top:4px}
+
+  /* City rail */
+  .rail{display:flex; gap:10px; flex-wrap:wrap; padding:18px 0 6px; border-top:1px solid var(--line); margin-top:26px}
+  .rail button{font-family:Manrope,sans-serif; font-size:14px; font-weight:600; color:var(--pine); background:transparent; border:1px solid var(--line-strong); border-radius:999px; padding:8px 15px; cursor:pointer; transition:background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease); min-height:40px}
+  .rail button .c{font-variant-numeric:tabular-nums; color:var(--sage); margin-left:7px}
+  .rail button[aria-pressed="true"]{background:var(--pine); color:var(--bone); border-color:var(--pine)}
+  .rail button[aria-pressed="true"] .c{color:rgba(243,238,226,.72)}
+  .rail button:hover{background:rgba(22,53,42,.07)}
+
+  /* Board */
+  .board{padding:22px 0 10px}
+  .hood{padding:34px 0; border-top:2px solid var(--line-strong)}
+  .hood:first-child{border-top:0}
+  .hood .head{display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:baseline; gap:18px; margin-bottom:18px}
+  .hood h2{font-family:Syne,sans-serif; font-weight:700; font-size:clamp(1.5rem,3.4vw,2.15rem); letter-spacing:-.03em; margin:0}
+  .hood .meta{font-family:var(--mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--sage)}
+  .hood .count{font-family:Syne,sans-serif; font-weight:800; font-size:clamp(1.6rem,3.6vw,2.4rem); font-variant-numeric:tabular-nums; color:var(--amber)}
+  .hood .count small{font-family:var(--mono); font-size:11px; font-weight:400; letter-spacing:.08em; text-transform:uppercase; color:var(--sage); display:block; text-align:right}
+  .meter{height:5px; background:rgba(15,36,27,.10); border-radius:3px; overflow:hidden; margin-bottom:20px}
+  .meter i{display:block; height:100%; background:linear-gradient(90deg,var(--amber-fill),var(--ember)); transform-origin:left; animation:grow 1s var(--ease) both}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+  /* Venue rows: table-like, hairlines, no cards */
+  .rows{display:flex; flex-direction:column}
+  .row{display:grid; grid-template-columns:minmax(0,2.1fr) minmax(0,1fr) auto; gap:16px; align-items:center; padding:13px 10px; border-top:1px solid var(--line); text-decoration:none; color:inherit; transition:background .18s var(--ease), padding .18s var(--ease)}
+  .row:hover{background:rgba(22,53,42,.055); padding-left:16px}
+  .row .nm{font-weight:600; font-size:16px; display:flex; align-items:center; gap:10px}
+  .row .swatch{width:9px;height:9px;border-radius:2px;background:var(--moss); flex:none}
+  .row.hot .swatch{background:var(--ember)}
+  .row .cu{color:var(--sage); font-size:14px}
+  .row .v{font-family:var(--mono); font-size:13px; color:var(--pine); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
+  .row .v b{font-weight:600}
+  .row .v span{color:var(--sage); display:block; font-size:11px}
+
+  .empty{padding:40px 0; color:var(--sage); border-top:1px solid var(--line)}
+  .empty b{color:var(--ink)}
+
+  /* Footer: letter close */
+  footer.close{margin-top:40px; border-top:1px solid var(--line); padding:40px 0 70px}
+  footer.close .letter{max-width:60ch}
+  footer.close p{font-size:15px; color:var(--sage); margin:0 0 14px}
+  footer.close .sig{font-family:Syne,sans-serif; font-weight:700; font-size:15px; color:var(--ink); letter-spacing:-.01em}
+  footer.close .credit{margin-top:22px; font-size:12.5px; color:var(--sage); display:flex; gap:18px; flex-wrap:wrap; align-items:center}
+  footer.close .credit a{border-bottom:1px solid var(--line-strong); text-decoration:none}
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr; gap:26px; align-items:start; padding-top:36px}
+    .ticker{justify-self:start; text-align:left; border-left:0; padding-left:0; border-top:1px solid var(--line-strong); padding-top:18px; width:100%}
+    .hood .head{grid-template-columns:1fr; gap:6px}
+    .hood .count small{text-align:left}
+    .row{grid-template-columns:1fr auto; gap:10px}
+    .row .cu{grid-column:1 / -1; order:3}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important}
+    .hero h1 .unmask > span{transform:none}
+    .meter i{transform:scaleX(1)}
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="#"><span class="mark" aria-hidden="true"></span>Covers</a>
+    <span class="spacer"></span>
+    <span class="live" id="liveState"><span class="dot" aria-hidden="true"></span>Live</span>
+    <a class="powered" href="https://flynet.org" target="_blank" rel="noopener">Powered by Flynet</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" aria-labelledby="h1">
+    <div>
+      <h1 id="h1">
+        <span class="unmask"><span>Where the city</span></span>
+        <span class="unmask"><span>is eating now.</span></span>
+      </h1>
+      <p class="lede">Covers reads live Blackbird check-ins and shows which rooms are filling up, neighborhood by neighborhood. Pick a city, then pick a table.</p>
+    </div>
+    <div class="ticker" aria-live="polite">
+      <div class="num" id="totalNum">0</div>
+      <div class="lbl">Covers in this window</div>
+      <div class="win" id="winNote"></div>
+    </div>
+  </section>
+
+  <nav class="rail" id="cityRail" aria-label="Choose a city"></nav>
+  <section class="board" id="board" aria-label="Live dining activity"></section>
+</main>
+
+<footer class="close">
+  <div class="wrap">
+    <div class="letter">
+      <p>This board is live. It breathes as people sit down. Every cover here is a real, verified check-in at a Blackbird restaurant, not a forecast or a guess.</p>
+      <p class="sig">See you at the table.</p>
+    </div>
+    <div class="credit">
+      <span>Live network data from <a href="https://flynet.org" target="_blank" rel="noopener">Flynet</a>, built on Blackbird.</span>
+      <span id="genAt"></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const DATA = {"generatedAt":"2026-09-19T09:58:46.5416220+01:00","windowMinutes":234,"total":600,"cities":[{"name":"San Francisco, CA","covers":223,"neighborhoods":[{"name":"Mission","covers":35,"venues":[{"name":"Trick Dog","cuisine":"Cocktail Bar","visits":5,"last":"2026-09-19T07:06:02.7353400+01:00"},{"name":"Southern Pacific Brewing","cuisine":"Brewery","visits":3,"last":"2026-09-19T07:49:17.7641850+01:00"},{"name":"Okaeri Japanese Bistro","cuisine":"Japanese","visits":3,"last":"2026-09-19T07:10:42.5939440+01:00"},{"name":"Beauty Bar","cuisine":"Bar","visits":3,"last":"2026-09-19T08:16:47.8918740+01:00"},{"name":"Blue Plate","cuisine":"Southern","visits":2,"last":"2026-09-19T06:35:18.9109580+01:00"},{"name":"Destapas","cuisine":"Spanish","visits":2,"last":"2026-09-19T06:46:26.6650850+01:00"}]},{"name":"SOMA","covers":21,"venues":[{"name":"KAIY┼î Rooftop","cuisine":"Japanese, Cocktail Bar","visits":7,"last":"2026-09-19T08:02:05.2331930+01:00"},{"name":"Dragon Horse","cuisine":"Japanese","visits":5,"last":"2026-09-19T08:01:23.3868130+01:00"},{"name":"Kaiyo Restaurant","cuisine":"Peruvian","visits":3,"last":"2026-09-19T07:00:43.5360840+01:00"},{"name":"ROOH","cuisine":"Indian","visits":2,"last":"2026-09-19T06:34:38.8675920+01:00"},{"name":"Question Mark Tavern","cuisine":"Bar","visits":2,"last":"2026-09-19T09:10:50.3241270+01:00"},{"name":"The Fly Trap","cuisine":"American","visits":2,"last":"2026-09-19T07:53:04.8483510+01:00"}]},{"name":"The Castro","covers":19,"venues":[{"name":"Castro Indian Restaurant \u0026 Bar","cuisine":"Indian","visits":5,"last":"2026-09-19T08:21:54.9758600+01:00"},{"name":"Dumpling Kitchen","cuisine":"Asian","visits":4,"last":"2026-09-19T06:38:49.9885740+01:00"},{"name":"a├¡so","cuisine":"Vegetarian / Vegan","visits":4,"last":"2026-09-19T08:22:36.9678970+01:00"},{"name":"Fable","cuisine":"American","visits":3,"last":"2026-09-19T06:38:08.3068620+01:00"},{"name":"Lobby Bar","cuisine":"Cocktail Bar","visits":2,"last":"2026-09-19T07:06:43.7917630+01:00"},{"name":"Pasta Panino","cuisine":"Pasta","visits":1,"last":"2026-09-19T06:37:58.0759440+01:00"}]},{"name":"Financial District","covers":15,"venues":[{"name":"The Third Floor","cuisine":"American","visits":5,"last":"2026-09-19T07:04:13.3184150+01:00"},{"name":"Barcha Restaurant","cuisine":"Mediterranean","visits":4,"last":"2026-09-19T06:45:39.1228330+01:00"},{"name":"The House Of Shields","cuisine":"Cocktail Bar","visits":4,"last":"2026-09-19T09:28:50.9627860+01:00"},{"name":"Prelude","cuisine":"Southern","visits":2,"last":"2026-09-19T07:02:32.9195100+01:00"}]}]},{"name":"Los Angeles, CA","covers":155,"neighborhoods":[{"name":"Venice","covers":44,"venues":[{"name":"The Brig","cuisine":"Bar","visits":9,"last":"2026-09-19T08:37:58.1922730+01:00"},{"name":"Gjelina","cuisine":"New American","visits":8,"last":"2026-09-19T07:31:40.4364890+01:00"},{"name":"Felix Trattoria","cuisine":"Italian","visits":5,"last":"2026-09-19T07:16:34.7593880+01:00"},{"name":"Only The Wild Ones","cuisine":"Wine Bar","visits":5,"last":"2026-09-19T07:16:46.9904950+01:00"},{"name":"San Dami├ín","cuisine":"Mexican","visits":4,"last":"2026-09-19T07:16:39.6997830+01:00"},{"name":"Paloma Venice","cuisine":"Mediterranean","visits":4,"last":"2026-09-19T07:16:39.9794370+01:00"}]},{"name":"Santa Monica","covers":34,"venues":[{"name":"pasjoli","cuisine":"French","visits":7,"last":"2026-09-19T08:09:30.8660730+01:00"},{"name":"Crudo e Nudo","cuisine":"Seafood","visits":4,"last":"2026-09-19T07:54:46.2640570+01:00"},{"name":"Shirub─ô","cuisine":"Japanese","visits":4,"last":"2026-09-19T06:32:49.2950970+01:00"},{"name":"Lula Cocina Mexicana","cuisine":"Mexican","visits":4,"last":"2026-09-19T07:54:10.1284630+01:00"},{"name":"SELINE","cuisine":"American","visits":3,"last":"2026-09-19T08:23:29.6610360+01:00"},{"name":"Milo \u0026 Olive","cuisine":"10X Coffee Club, Italian","visits":2,"last":"2026-09-19T06:29:45.9277500+01:00"}]},{"name":"Silver Lake","covers":10,"venues":[{"name":"The Silverlake Lounge","cuisine":"Cocktail Bar","visits":2,"last":"2026-09-19T06:41:07.8117590+01:00"},{"name":"Men \u0026 Beasts","cuisine":"Chinese","visits":2,"last":"2026-09-19T06:38:25.1066480+01:00"},{"name":"Manila Inasal","cuisine":"Southeast Asian","visits":2,"last":"2026-09-19T06:48:09.0543770+01:00"},{"name":"LaSorted\u0027s","cuisine":"Pizza","visits":2,"last":"2026-09-19T06:41:32.0903740+01:00"},{"name":"Pine \u0026 Crane","cuisine":"Taiwanese","visits":1,"last":"2026-09-19T06:10:32.8477950+01:00"},{"name":"Botanica Restaurant","cuisine":"New American","visits":1,"last":"2026-09-19T06:31:31.0368990+01:00"}]},{"name":"Downtown LA","covers":8,"venues":[{"name":"LaSorted\u0027s","cuisine":"Pizza","visits":7,"last":"2026-09-19T08:26:45.4849680+01:00"},{"name":"Pine \u0026 Crane","cuisine":"Taiwanese","visits":1,"last":"2026-09-19T06:57:31.7540460+01:00"}]}]},{"name":"New York, NY","covers":107,"neighborhoods":[{"name":"Lower East Side","covers":12,"venues":[{"name":"TIN\u0027s","cuisine":"Shanghainese, Cocktail Bar","visits":4,"last":"2026-09-19T07:49:06.8291190+01:00"},{"name":"Hair of the Dog","cuisine":"American","visits":1,"last":"2026-09-19T06:30:50.0936980+01:00"},{"name":"Somm Time","cuisine":"Wine Bar","visits":1,"last":"2026-09-19T06:55:03.8243180+01:00"},{"name":"Kalye","cuisine":"Filipino","visits":1,"last":"2026-09-19T06:30:14.1553220+01:00"},{"name":"Trapizzino","cuisine":"Italian","visits":1,"last":"2026-09-19T06:30:29.9058500+01:00"},{"name":"Attaboy","cuisine":"Cocktail Bar","visits":1,"last":"2026-09-19T06:55:34.3189000+01:00"}]},{"name":"East Village","covers":12,"venues":[{"name":"Pineapple Club","cuisine":"Cocktail Bar, New American, American","visits":4,"last":"2026-09-19T08:45:52.6529840+01:00"},{"name":"Titi\u0027s Empanadas","cuisine":"Latin American","visits":3,"last":"2026-09-19T06:11:44.1914980+01:00"},{"name":"Paradise Lost","cuisine":"American","visits":2,"last":"2026-09-19T06:28:14.1434400+01:00"},{"name":"Idaho","cuisine":"American","visits":2,"last":"2026-09-19T08:15:00.4938740+01:00"},{"name":"Virginia\u0027s","cuisine":"American","visits":1,"last":"2026-09-19T06:22:23.0362780+01:00"}]},{"name":"Williamsburg","covers":9,"venues":[{"name":"Tradesman","cuisine":"American","visits":2,"last":"2026-09-19T07:47:15.9452490+01:00"},{"name":"Midnights","cuisine":"Cocktail Bar","visits":2,"last":"2026-09-19T07:40:12.6255990+01:00"},{"name":"Kellogg\u0027s Diner","cuisine":"Diner","visits":2,"last":"2026-09-19T09:41:21.4073840+01:00"},{"name":"The Collectors Bar","cuisine":"Cocktail Bar","visits":2,"last":"2026-09-19T08:06:54.0932590+01:00"},{"name":"Balera","cuisine":"Pasta, Pizza","visits":1,"last":"2026-09-19T06:32:16.8075950+01:00"}]},{"name":"West Village","covers":8,"venues":[{"name":"Blind Tiger","cuisine":"Bar","visits":2,"last":"2026-09-19T09:04:20.5686250+01:00"},{"name":"Tacos 1986","cuisine":"Mexican, Tacos","visits":1,"last":"2026-09-19T06:56:34.0389840+01:00"},{"name":"Sip\u0026Guzzle","cuisine":"Cocktail Bar","visits":1,"last":"2026-09-19T06:56:19.2673930+01:00"},{"name":"American Bar - New York","cuisine":"American Seafood","visits":1,"last":"2026-09-19T06:06:20.8424620+01:00"},{"name":"Judy ZΓÇÖs Sports Tavern \u0026 Kitchen","cuisine":"American","visits":1,"last":"2026-09-19T08:44:57.7068970+01:00"},{"name":"Jajaja Mexicana","cuisine":"Mexican","visits":1,"last":"2026-09-19T08:44:49.8743850+01:00"}]}]},{"name":"Denver, CO","covers":74,"neighborhoods":[{"name":"LoDo","covers":19,"venues":[{"name":"Call Me Pearl","cuisine":"Bar, Cocktail Bar","visits":4,"last":"2026-09-19T07:44:48.1013060+01:00"},{"name":"Tavernetta","cuisine":"Italian","visits":4,"last":"2026-09-19T06:56:26.5188720+01:00"},{"name":"A5 Steakhouse","cuisine":"Steakhouse","visits":4,"last":"2026-09-19T07:22:32.3341730+01:00"},{"name":"Urban Farmer Denver","cuisine":"Steakhouse, American","visits":3,"last":"2026-09-19T07:50:04.1104220+01:00"},{"name":"Woodie Fisher","cuisine":"New American","visits":1,"last":"2026-09-19T06:15:40.9813790+01:00"},{"name":"The OG","cuisine":"American","visits":1,"last":"2026-09-19T06:53:32.0060060+01:00"}]},{"name":"RiNo","covers":16,"venues":[{"name":"Sorry Gorgeous","cuisine":"Cocktail Bar","visits":4,"last":"2026-09-19T09:31:40.9821640+01:00"},{"name":"Pig and Tiger","cuisine":"Taiwanese","visits":2,"last":"2026-09-19T06:37:35.1986380+01:00"},{"name":"Hop Alley","cuisine":"Chinese","visits":2,"last":"2026-09-19T06:31:58.7760410+01:00"},{"name":"Dear Emilia","cuisine":"Italian","visits":2,"last":"2026-09-19T06:22:47.4023910+01:00"},{"name":"The Peach Crease Club","cuisine":"Cocktail Bar","visits":2,"last":"2026-09-19T07:14:46.5630950+01:00"},{"name":"Mister Oso","cuisine":"Latin American","visits":2,"last":"2026-09-19T06:39:23.6553360+01:00"}]},{"name":"Cherry Creek","covers":13,"venues":[{"name":"Quality Italian","cuisine":"Steakhouse","visits":5,"last":"2026-09-19T06:58:08.6826590+01:00"},{"name":"Forget Me Not","cuisine":"Cocktail Bar","visits":2,"last":"2026-09-19T06:57:59.3740610+01:00"},{"name":"B\u0026GC","cuisine":"Cocktail Bar","visits":2,"last":"2026-09-19T06:57:49.2979030+01:00"},{"name":"Toro","cuisine":"Latin American, Asian Fusion","visits":2,"last":"2026-09-19T07:28:50.6036490+01:00"},{"name":"Local Jones","cuisine":"American, Cocktail Bar","visits":1,"last":"2026-09-19T06:46:09.8785880+01:00"},{"name":"Ay Papi","cuisine":"Latin American","visits":1,"last":"2026-09-19T08:15:33.5086980+01:00"}]},{"name":"Uptown","covers":8,"venues":[{"name":"Sexy Pizza","cuisine":"Pizza","visits":4,"last":"2026-09-19T07:27:37.2999810+01:00"},{"name":"Ace Eat Serve","cuisine":"Asian, Bar, Dim Sum","visits":3,"last":"2026-09-19T06:33:15.4165670+01:00"},{"name":"Steuben\u0027s Uptown","cuisine":"American","visits":1,"last":"2026-09-19T06:12:56.7992280+01:00"}]}]},{"name":"Charleston, SC","covers":29,"neighborhoods":[{"name":"Folly Beach","covers":9,"venues":[{"name":"The Drop-In Bar \u0026 Deli","cuisine":"Deli","visits":8,"last":"2026-09-19T07:30:18.0271490+01:00"},{"name":"Lowlife","cuisine":"Bar","visits":1,"last":"2026-09-19T06:54:22.1305560+01:00"}]},{"name":"Cannonborough Elliotborough","covers":5,"venues":[{"name":"La Cave","cuisine":"French","visits":2,"last":"2026-09-19T06:24:10.5095060+01:00"},{"name":"By The Way","cuisine":"Southern","visits":2,"last":"2026-09-19T07:57:44.5987620+01:00"},{"name":"Dalila\u0027s","cuisine":"Cocktail Bar","visits":1,"last":"2026-09-19T06:28:20.1889080+01:00"}]},{"name":"Park Circle","covers":4,"venues":[{"name":"Paddock \u0026 Whisky","cuisine":"Bar","visits":2,"last":"2026-09-19T06:51:01.7729610+01:00"},{"name":"Stems \u0026 Skins","cuisine":"New American, Wine Bar","visits":1,"last":"2026-09-19T06:38:35.8985850+01:00"},{"name":"Sissy Bar","cuisine":"Cocktail Bar","visits":1,"last":"2026-09-19T06:38:43.8415540+01:00"}]},{"name":"French Quarter","covers":3,"venues":[{"name":"Kaminsky\u0027s Dessert Cafe","cuisine":"10X Coffee Club, Bakery, Cafe","visits":2,"last":"2026-09-19T06:35:54.4653110+01:00"},{"name":"The Gin Joint","cuisine":"Cocktail Bar","visits":1,"last":"2026-09-19T06:43:20.7137640+01:00"}]}]},{"name":"Mountains, CO","covers":9,"neighborhoods":[{"name":"Vail","covers":6,"venues":[{"name":"Mountain Standard","cuisine":"New American","visits":3,"last":"2026-09-19T06:42:55.6372180+01:00"},{"name":"Sweet Basil","cuisine":"New American","visits":3,"last":"2026-09-19T06:49:24.4266180+01:00"}]},{"name":"Breckenridge","covers":2,"venues":[{"name":"Alpenrock Breckenridge Cafe","cuisine":"Bakery, 10X Coffee Club","visits":1,"last":"2026-09-19T07:07:36.9465930+01:00"},{"name":"Rootstalk Breckenridge","cuisine":"New American","visits":1,"last":"2026-09-19T07:30:30.0317340+01:00"}]},{"name":"Aspen","covers":1,"venues":[{"name":"French Alpine Bistro - Cr├¬perie du Village","cuisine":"French","visits":1,"last":"2026-09-19T06:22:17.9109520+01:00"}]}]},{"name":"Hamptons, NY","covers":3,"neighborhoods":[{"name":"Shelter Island","covers":1,"venues":[{"name":"L├⌐on 1909","cuisine":"Mediterranean","visits":1,"last":"2026-09-19T08:18:36.7652000+01:00"}]},{"name":"Bridgehampton","covers":1,"venues":[{"name":"L\u0026W Market","cuisine":"10X Coffee Club, Market","visits":1,"last":"2026-09-19T09:02:29.0002640+01:00"}]},{"name":"Amagansett","covers":1,"venues":[{"name":"Rowdy Hall","cuisine":"Bar","visits":1,"last":"2026-09-19T09:19:28.1322350+01:00"}]}]}]};
+
+const state = { city: 0 };
+const fmt = n => n.toLocaleString('en-US');
+
+function intensity(covers, max){
+  const r = max > 0 ? covers / max : 0;
+  return Math.round(34 + r * 66);
+}
+
+function render(){
+  const total = DATA.total || 0;
+  document.getElementById('winNote').textContent = 'Last ' + Math.round((DATA.windowMinutes||0)/60) + ' hours';
+  const gt = new Date(DATA.generatedAt);
+  document.getElementById('genAt').textContent = 'Data pulled ' + gt.toLocaleString('en-US', {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
+
+  // ticker
+  const numEl = document.getElementById('totalNum');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce){ numEl.textContent = fmt(total); }
+  else {
+    let cur = 0; const step = Math.max(1, Math.round(total / 42));
+    const t = setInterval(() => { cur += step; if (cur >= total){ cur = total; clearInterval(t); } numEl.textContent = fmt(cur); }, 22);
+  }
+
+  // rail
+  const rail = document.getElementById('cityRail');
+  rail.innerHTML = '';
+  DATA.cities.forEach((c, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-pressed', String(i === state.city));
+    b.innerHTML = c.name.replace(', CA','').replace(', CO','').replace(', SC','').replace(', NY','') + '<span class="c">' + fmt(c.covers) + '</span>';
+    b.addEventListener('click', () => { state.city = i; render(); });
+    rail.appendChild(b);
+  });
+
+  // board
+  const city = DATA.cities[state.city];
+  const board = document.getElementById('board');
+  const hoods = (city && city.neighborhoods) ? city.neighborhoods : [];
+  const maxHood = hoods.reduce((m,h) => Math.max(m, h.covers), 0);
+  board.innerHTML = '';
+
+  if (!hoods.length){
+    board.innerHTML = '<div class="empty"><b>Quiet right now.</b> No covers logged in this city in the current window. Try another city, or check back when the dinner rush starts.</div>';
+    return;
+  }
+
+  hoods.forEach(h => {
+    const sec = document.createElement('section');
+    sec.className = 'hood';
+    const pct = intensity(h.covers, maxHood);
+    let rows = '';
+    (h.venues||[]).forEach(v => {
+      const hot = v.visits >= 5 ? ' hot' : '';
+      const rel = relTime(v.last);
+      rows += '<a class="row'+hot+'" href="#"><span class="swatch" aria-hidden="true"></span><span class="nm">'+esc(v.name)+'</span><span class="cu">'+esc(v.cuisine||'Restaurant')+'</span><span class="v"><b>'+v.visits+'</b> covers<span>'+rel+'</span></span></a>';
+    });
+    sec.innerHTML =
+      '<div class="head"><div><h2>'+esc(h.name)+'</h2><div class="meta">'+esc(city.name)+'</div></div>'+
+      '<div class="count">'+fmt(h.covers)+'<small>covers</small></div></div>'+
+      '<div class="meter" role="img" aria-label="Activity '+pct+' percent of the busiest neighborhood"><i style="width:'+pct+'%"></i></div>'+
+      '<div class="rows">'+rows+'</div>';
+    board.appendChild(sec);
+  });
+}
+
+function esc(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function relTime(iso){
+  if (!iso) return '';
+  const then = new Date(iso).getTime();
+  const mins = Math.max(0, Math.round((Date.now() - then) / 60000));
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + 'm ago';
+  const h = Math.floor(mins/60);
+  return h + 'h ' + (mins % 60) + 'm ago';
+}
+
+render();
+</script>
+</body>
+</html>

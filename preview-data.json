@@ -1,0 +1,823 @@
+﻿{
+    "generatedAt":  "2026-09-19T09:58:46.5416220+01:00",
+    "windowMinutes":  234,
+    "total":  600,
+    "cities":  [
+                   {
+                       "name":  "San Francisco, CA",
+                       "covers":  223,
+                       "neighborhoods":  [
+                                             {
+                                                 "name":  "Mission",
+                                                 "covers":  35,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Trick Dog",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  5,
+                                                                    "last":  "2026-09-19T07:06:02.7353400+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Southern Pacific Brewing",
+                                                                    "cuisine":  "Brewery",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T07:49:17.7641850+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Okaeri Japanese Bistro",
+                                                                    "cuisine":  "Japanese",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T07:10:42.5939440+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Beauty Bar",
+                                                                    "cuisine":  "Bar",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T08:16:47.8918740+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Blue Plate",
+                                                                    "cuisine":  "Southern",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:35:18.9109580+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Destapas",
+                                                                    "cuisine":  "Spanish",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:46:26.6650850+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "SOMA",
+                                                 "covers":  21,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "KAIY┼î Rooftop",
+                                                                    "cuisine":  "Japanese, Cocktail Bar",
+                                                                    "visits":  7,
+                                                                    "last":  "2026-09-19T08:02:05.2331930+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Dragon Horse",
+                                                                    "cuisine":  "Japanese",
+                                                                    "visits":  5,
+                                                                    "last":  "2026-09-19T08:01:23.3868130+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Kaiyo Restaurant",
+                                                                    "cuisine":  "Peruvian",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T07:00:43.5360840+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "ROOH",
+                                                                    "cuisine":  "Indian",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:34:38.8675920+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Question Mark Tavern",
+                                                                    "cuisine":  "Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T09:10:50.3241270+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "The Fly Trap",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T07:53:04.8483510+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "The Castro",
+                                                 "covers":  19,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Castro Indian Restaurant \u0026 Bar",
+                                                                    "cuisine":  "Indian",
+                                                                    "visits":  5,
+                                                                    "last":  "2026-09-19T08:21:54.9758600+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Dumpling Kitchen",
+                                                                    "cuisine":  "Asian",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T06:38:49.9885740+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "a├¡so",
+                                                                    "cuisine":  "Vegetarian / Vegan",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T08:22:36.9678970+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Fable",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T06:38:08.3068620+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Lobby Bar",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T07:06:43.7917630+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Pasta Panino",
+                                                                    "cuisine":  "Pasta",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:37:58.0759440+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Financial District",
+                                                 "covers":  15,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "The Third Floor",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  5,
+                                                                    "last":  "2026-09-19T07:04:13.3184150+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Barcha Restaurant",
+                                                                    "cuisine":  "Mediterranean",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T06:45:39.1228330+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "The House Of Shields",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T09:28:50.9627860+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Prelude",
+                                                                    "cuisine":  "Southern",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T07:02:32.9195100+01:00"
+                                                                }
+                                                            ]
+                                             }
+                                         ]
+                   },
+                   {
+                       "name":  "Los Angeles, CA",
+                       "covers":  155,
+                       "neighborhoods":  [
+                                             {
+                                                 "name":  "Venice",
+                                                 "covers":  44,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "The Brig",
+                                                                    "cuisine":  "Bar",
+                                                                    "visits":  9,
+                                                                    "last":  "2026-09-19T08:37:58.1922730+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Gjelina",
+                                                                    "cuisine":  "New American",
+                                                                    "visits":  8,
+                                                                    "last":  "2026-09-19T07:31:40.4364890+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Felix Trattoria",
+                                                                    "cuisine":  "Italian",
+                                                                    "visits":  5,
+                                                                    "last":  "2026-09-19T07:16:34.7593880+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Only The Wild Ones",
+                                                                    "cuisine":  "Wine Bar",
+                                                                    "visits":  5,
+                                                                    "last":  "2026-09-19T07:16:46.9904950+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "San Dami├ín",
+                                                                    "cuisine":  "Mexican",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T07:16:39.6997830+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Paloma Venice",
+                                                                    "cuisine":  "Mediterranean",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T07:16:39.9794370+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Santa Monica",
+                                                 "covers":  34,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "pasjoli",
+                                                                    "cuisine":  "French",
+                                                                    "visits":  7,
+                                                                    "last":  "2026-09-19T08:09:30.8660730+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Crudo e Nudo",
+                                                                    "cuisine":  "Seafood",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T07:54:46.2640570+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Shirub─ô",
+                                                                    "cuisine":  "Japanese",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T06:32:49.2950970+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Lula Cocina Mexicana",
+                                                                    "cuisine":  "Mexican",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T07:54:10.1284630+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "SELINE",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T08:23:29.6610360+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Milo \u0026 Olive",
+                                                                    "cuisine":  "10X Coffee Club, Italian",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:29:45.9277500+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Silver Lake",
+                                                 "covers":  10,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "The Silverlake Lounge",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:41:07.8117590+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Men \u0026 Beasts",
+                                                                    "cuisine":  "Chinese",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:38:25.1066480+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Manila Inasal",
+                                                                    "cuisine":  "Southeast Asian",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:48:09.0543770+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "LaSorted\u0027s",
+                                                                    "cuisine":  "Pizza",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:41:32.0903740+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Pine \u0026 Crane",
+                                                                    "cuisine":  "Taiwanese",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:10:32.8477950+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Botanica Restaurant",
+                                                                    "cuisine":  "New American",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:31:31.0368990+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Downtown LA",
+                                                 "covers":  8,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "LaSorted\u0027s",
+                                                                    "cuisine":  "Pizza",
+                                                                    "visits":  7,
+                                                                    "last":  "2026-09-19T08:26:45.4849680+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Pine \u0026 Crane",
+                                                                    "cuisine":  "Taiwanese",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:57:31.7540460+01:00"
+                                                                }
+                                                            ]
+                                             }
+                                         ]
+                   },
+                   {
+                       "name":  "New York, NY",
+                       "covers":  107,
+                       "neighborhoods":  [
+                                             {
+                                                 "name":  "Lower East Side",
+                                                 "covers":  12,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "TIN\u0027s",
+                                                                    "cuisine":  "Shanghainese, Cocktail Bar",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T07:49:06.8291190+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Hair of the Dog",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:30:50.0936980+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Somm Time",
+                                                                    "cuisine":  "Wine Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:55:03.8243180+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Kalye",
+                                                                    "cuisine":  "Filipino",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:30:14.1553220+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Trapizzino",
+                                                                    "cuisine":  "Italian",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:30:29.9058500+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Attaboy",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:55:34.3189000+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "East Village",
+                                                 "covers":  12,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Pineapple Club",
+                                                                    "cuisine":  "Cocktail Bar, New American, American",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T08:45:52.6529840+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Titi\u0027s Empanadas",
+                                                                    "cuisine":  "Latin American",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T06:11:44.1914980+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Paradise Lost",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:28:14.1434400+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Idaho",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T08:15:00.4938740+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Virginia\u0027s",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:22:23.0362780+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Williamsburg",
+                                                 "covers":  9,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Tradesman",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T07:47:15.9452490+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Midnights",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T07:40:12.6255990+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Kellogg\u0027s Diner",
+                                                                    "cuisine":  "Diner",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T09:41:21.4073840+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "The Collectors Bar",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T08:06:54.0932590+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Balera",
+                                                                    "cuisine":  "Pasta, Pizza",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:32:16.8075950+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "West Village",
+                                                 "covers":  8,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Blind Tiger",
+                                                                    "cuisine":  "Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T09:04:20.5686250+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Tacos 1986",
+                                                                    "cuisine":  "Mexican, Tacos",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:56:34.0389840+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Sip\u0026Guzzle",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:56:19.2673930+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "American Bar - New York",
+                                                                    "cuisine":  "American Seafood",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:06:20.8424620+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Judy ZΓÇÖs Sports Tavern \u0026 Kitchen",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T08:44:57.7068970+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Jajaja Mexicana",
+                                                                    "cuisine":  "Mexican",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T08:44:49.8743850+01:00"
+                                                                }
+                                                            ]
+                                             }
+                                         ]
+                   },
+                   {
+                       "name":  "Denver, CO",
+                       "covers":  74,
+                       "neighborhoods":  [
+                                             {
+                                                 "name":  "LoDo",
+                                                 "covers":  19,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Call Me Pearl",
+                                                                    "cuisine":  "Bar, Cocktail Bar",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T07:44:48.1013060+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Tavernetta",
+                                                                    "cuisine":  "Italian",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T06:56:26.5188720+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "A5 Steakhouse",
+                                                                    "cuisine":  "Steakhouse",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T07:22:32.3341730+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Urban Farmer Denver",
+                                                                    "cuisine":  "Steakhouse, American",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T07:50:04.1104220+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Woodie Fisher",
+                                                                    "cuisine":  "New American",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:15:40.9813790+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "The OG",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:53:32.0060060+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "RiNo",
+                                                 "covers":  16,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Sorry Gorgeous",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T09:31:40.9821640+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Pig and Tiger",
+                                                                    "cuisine":  "Taiwanese",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:37:35.1986380+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Hop Alley",
+                                                                    "cuisine":  "Chinese",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:31:58.7760410+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Dear Emilia",
+                                                                    "cuisine":  "Italian",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:22:47.4023910+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "The Peach Crease Club",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T07:14:46.5630950+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Mister Oso",
+                                                                    "cuisine":  "Latin American",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:39:23.6553360+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Cherry Creek",
+                                                 "covers":  13,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Quality Italian",
+                                                                    "cuisine":  "Steakhouse",
+                                                                    "visits":  5,
+                                                                    "last":  "2026-09-19T06:58:08.6826590+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Forget Me Not",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:57:59.3740610+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "B\u0026GC",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:57:49.2979030+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Toro",
+                                                                    "cuisine":  "Latin American, Asian Fusion",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T07:28:50.6036490+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Local Jones",
+                                                                    "cuisine":  "American, Cocktail Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:46:09.8785880+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Ay Papi",
+                                                                    "cuisine":  "Latin American",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T08:15:33.5086980+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Uptown",
+                                                 "covers":  8,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Sexy Pizza",
+                                                                    "cuisine":  "Pizza",
+                                                                    "visits":  4,
+                                                                    "last":  "2026-09-19T07:27:37.2999810+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Ace Eat Serve",
+                                                                    "cuisine":  "Asian, Bar, Dim Sum",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T06:33:15.4165670+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Steuben\u0027s Uptown",
+                                                                    "cuisine":  "American",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:12:56.7992280+01:00"
+                                                                }
+                                                            ]
+                                             }
+                                         ]
+                   },
+                   {
+                       "name":  "Charleston, SC",
+                       "covers":  29,
+                       "neighborhoods":  [
+                                             {
+                                                 "name":  "Folly Beach",
+                                                 "covers":  9,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "The Drop-In Bar \u0026 Deli",
+                                                                    "cuisine":  "Deli",
+                                                                    "visits":  8,
+                                                                    "last":  "2026-09-19T07:30:18.0271490+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Lowlife",
+                                                                    "cuisine":  "Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:54:22.1305560+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Cannonborough Elliotborough",
+                                                 "covers":  5,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "La Cave",
+                                                                    "cuisine":  "French",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:24:10.5095060+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "By The Way",
+                                                                    "cuisine":  "Southern",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T07:57:44.5987620+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Dalila\u0027s",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:28:20.1889080+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Park Circle",
+                                                 "covers":  4,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Paddock \u0026 Whisky",
+                                                                    "cuisine":  "Bar",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:51:01.7729610+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Stems \u0026 Skins",
+                                                                    "cuisine":  "New American, Wine Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:38:35.8985850+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Sissy Bar",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:38:43.8415540+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "French Quarter",
+                                                 "covers":  3,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Kaminsky\u0027s Dessert Cafe",
+                                                                    "cuisine":  "10X Coffee Club, Bakery, Cafe",
+                                                                    "visits":  2,
+                                                                    "last":  "2026-09-19T06:35:54.4653110+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "The Gin Joint",
+                                                                    "cuisine":  "Cocktail Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:43:20.7137640+01:00"
+                                                                }
+                                                            ]
+                                             }
+                                         ]
+                   },
+                   {
+                       "name":  "Mountains, CO",
+                       "covers":  9,
+                       "neighborhoods":  [
+                                             {
+                                                 "name":  "Vail",
+                                                 "covers":  6,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Mountain Standard",
+                                                                    "cuisine":  "New American",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T06:42:55.6372180+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Sweet Basil",
+                                                                    "cuisine":  "New American",
+                                                                    "visits":  3,
+                                                                    "last":  "2026-09-19T06:49:24.4266180+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Breckenridge",
+                                                 "covers":  2,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Alpenrock Breckenridge Cafe",
+                                                                    "cuisine":  "Bakery, 10X Coffee Club",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T07:07:36.9465930+01:00"
+                                                                },
+                                                                {
+                                                                    "name":  "Rootstalk Breckenridge",
+                                                                    "cuisine":  "New American",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T07:30:30.0317340+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Aspen",
+                                                 "covers":  1,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "French Alpine Bistro - Cr├¬perie du Village",
+                                                                    "cuisine":  "French",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T06:22:17.9109520+01:00"
+                                                                }
+                                                            ]
+                                             }
+                                         ]
+                   },
+                   {
+                       "name":  "Hamptons, NY",
+                       "covers":  3,
+                       "neighborhoods":  [
+                                             {
+                                                 "name":  "Shelter Island",
+                                                 "covers":  1,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "L├⌐on 1909",
+                                                                    "cuisine":  "Mediterranean",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T08:18:36.7652000+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Bridgehampton",
+                                                 "covers":  1,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "L\u0026W Market",
+                                                                    "cuisine":  "10X Coffee Club, Market",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T09:02:29.0002640+01:00"
+                                                                }
+                                                            ]
+                                             },
+                                             {
+                                                 "name":  "Amagansett",
+                                                 "covers":  1,
+                                                 "venues":  [
+                                                                {
+                                                                    "name":  "Rowdy Hall",
+                                                                    "cuisine":  "Bar",
+                                                                    "visits":  1,
+                                                                    "last":  "2026-09-19T09:19:28.1322350+01:00"
+                                                                }
+                                                            ]
+                                             }
+                                         ]
+                   }
+               ]
+}

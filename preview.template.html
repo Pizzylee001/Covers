@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Covers | where the city is eating now</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bone:#F3EEE2; --paper:#FBF8F1; --ink:#0F241B; --pine:#16352A; --moss:#2C5741;
+    --sage:#55645A; --amber:#8F570E; --amber-fill:#D98A2B; --ember:#B23A14;
+    --line:rgba(15,36,27,.14); --line-strong:rgba(15,36,27,.28);
+    --dot:rgba(15,36,27,.10);
+    --r-block:14px; --r-ctl:9px;
+    --maxw:1180px;
+    --ease:cubic-bezier(.16,1,.3,1);
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bone); color:var(--ink);
+    font-family:Manrope,system-ui,sans-serif; font-size:16px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:radial-gradient(var(--dot) 1px, transparent 1px);
+    background-size:26px 26px; opacity:.55;
+  }
+  body::after{
+    content:""; position:fixed; z-index:0; pointer-events:none;
+    top:-30vh; right:-20vw; width:80vw; height:80vh;
+    background:radial-gradient(closest-side, rgba(217,138,43,.20), transparent 70%);
+    filter:blur(10px);
+  }
+  .wrap{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--amber); outline-offset:2px; border-radius:4px}
+
+  /* Masthead nav: N6 */
+  header.masthead{position:sticky; top:0; z-index:20; background:rgba(243,238,226,.82); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+  .masthead .wrap{display:flex; align-items:center; gap:20px; height:66px}
+  .wordmark{font-family:Syne,sans-serif; font-weight:800; font-size:21px; letter-spacing:-.02em; text-transform:uppercase; text-decoration:none; display:flex; align-items:center; gap:8px}
+  .wordmark .mark{width:12px;height:12px;background:var(--ink); border-radius:50% 50% 50% 0; transform:rotate(-45deg); display:inline-block}
+  .masthead .spacer{flex:1}
+  .live{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--pine)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--ember); box-shadow:0 0 0 0 rgba(178,58,20,.5); animation:pulse 2.4s var(--ease) infinite}
+  .powered{font-size:12px; color:var(--sage); text-decoration:none; border-bottom:1px solid var(--line-strong)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(178,58,20,.45)}70%{box-shadow:0 0 0 9px rgba(178,58,20,0)}100%{box-shadow:0 0 0 0 rgba(178,58,20,0)}}
+
+  /* Hanging hero: asymmetric, not centered */
+  .hero{padding:54px 0 30px; display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:40px; align-items:end}
+  .hero h1{font-family:Syne,sans-serif; font-weight:800; font-size:clamp(2.4rem,5.2vw,4.1rem); line-height:1.02; letter-spacing:-.035em; margin:0}
+  .hero h1 .unmask{display:block; overflow:hidden}
+  .hero h1 .unmask > span{display:block; transform:translateY(105%); animation:rise .9s var(--ease) forwards}
+  .hero h1 .unmask:nth-child(2) > span{animation-delay:.08s}
+  @keyframes rise{to{transform:translateY(0)}}
+  .hero p.lede{font-size:17px; line-height:1.55; color:var(--sage); margin:16px 0 0; max-width:46ch}
+  .ticker{justify-self:end; text-align:right; border-left:1px solid var(--line-strong); padding-left:26px}
+  .ticker .num{font-family:Syne,sans-serif; font-weight:800; font-size:clamp(3rem,7vw,5.4rem); line-height:.94; letter-spacing:-.04em; font-variant-numeric:tabular-nums; color:var(--pine)}
+  .ticker .lbl{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sage); margin-top:8px}
+  .ticker .win{font-size:13px; color:var(--sage); margin-top:4px}
+
+  /* City rail */
+  .rail{display:flex; gap:10px; flex-wrap:wrap; padding:18px 0 6px; border-top:1px solid var(--line); margin-top:26px}
+  .rail button{font-family:Manrope,sans-serif; font-size:14px; font-weight:600; color:var(--pine); background:transparent; border:1px solid var(--line-strong); border-radius:999px; padding:8px 15px; cursor:pointer; transition:background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease); min-height:40px}
+  .rail button .c{font-variant-numeric:tabular-nums; color:var(--sage); margin-left:7px}
+  .rail button[aria-pressed="true"]{background:var(--pine); color:var(--bone); border-color:var(--pine)}
+  .rail button[aria-pressed="true"] .c{color:rgba(243,238,226,.72)}
+  .rail button:hover{background:rgba(22,53,42,.07)}
+
+  /* Board */
+  .board{padding:22px 0 10px}
+  .hood{padding:34px 0; border-top:2px solid var(--line-strong)}
+  .hood:first-child{border-top:0}
+  .hood .head{display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:baseline; gap:18px; margin-bottom:18px}
+  .hood h2{font-family:Syne,sans-serif; font-weight:700; font-size:clamp(1.5rem,3.4vw,2.15rem); letter-spacing:-.03em; margin:0}
+  .hood .meta{font-family:var(--mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--sage)}
+  .hood .count{font-family:Syne,sans-serif; font-weight:800; font-size:clamp(1.6rem,3.6vw,2.4rem); font-variant-numeric:tabular-nums; color:var(--amber)}
+  .hood .count small{font-family:var(--mono); font-size:11px; font-weight:400; letter-spacing:.08em; text-transform:uppercase; color:var(--sage); display:block; text-align:right}
+  .meter{height:5px; background:rgba(15,36,27,.10); border-radius:3px; overflow:hidden; margin-bottom:20px}
+  .meter i{display:block; height:100%; background:linear-gradient(90deg,var(--amber-fill),var(--ember)); transform-origin:left; animation:grow 1s var(--ease) both}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+  /* Venue rows: table-like, hairlines, no cards */
+  .rows{display:flex; flex-direction:column}
+  .row{display:grid; grid-template-columns:minmax(0,2.1fr) minmax(0,1fr) auto; gap:16px; align-items:center; padding:13px 10px; border-top:1px solid var(--line); text-decoration:none; color:inherit; transition:background .18s var(--ease), padding .18s var(--ease)}
+  .row:hover{background:rgba(22,53,42,.055); padding-left:16px}
+  .row .nm{font-weight:600; font-size:16px; display:flex; align-items:center; gap:10px}
+  .row .swatch{width:9px;height:9px;border-radius:2px;background:var(--moss); flex:none}
+  .row.hot .swatch{background:var(--ember)}
+  .row .cu{color:var(--sage); font-size:14px}
+  .row .v{font-family:var(--mono); font-size:13px; color:var(--pine); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
+  .row .v b{font-weight:600}
+  .row .v span{color:var(--sage); display:block; font-size:11px}
+
+  .empty{padding:40px 0; color:var(--sage); border-top:1px solid var(--line)}
+  .empty b{color:var(--ink)}
+
+  /* Footer: letter close */
+  footer.close{margin-top:40px; border-top:1px solid var(--line); padding:40px 0 70px}
+  footer.close .letter{max-width:60ch}
+  footer.close p{font-size:15px; color:var(--sage); margin:0 0 14px}
+  footer.close .sig{font-family:Syne,sans-serif; font-weight:700; font-size:15px; color:var(--ink); letter-spacing:-.01em}
+  footer.close .credit{margin-top:22px; font-size:12.5px; color:var(--sage); display:flex; gap:18px; flex-wrap:wrap; align-items:center}
+  footer.close .credit a{border-bottom:1px solid var(--line-strong); text-decoration:none}
+
+  @media (max-width:820px){
+    .hero{grid-template-columns:1fr; gap:26px; align-items:start; padding-top:36px}
+    .ticker{justify-self:start; text-align:left; border-left:0; padding-left:0; border-top:1px solid var(--line-strong); padding-top:18px; width:100%}
+    .hood .head{grid-template-columns:1fr; gap:6px}
+    .hood .count small{text-align:left}
+    .row{grid-template-columns:1fr auto; gap:10px}
+    .row .cu{grid-column:1 / -1; order:3}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important}
+    .hero h1 .unmask > span{transform:none}
+    .meter i{transform:scaleX(1)}
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <a class="wordmark" href="#"><span class="mark" aria-hidden="true"></span>Covers</a>
+    <span class="spacer"></span>
+    <span class="live" id="liveState"><span class="dot" aria-hidden="true"></span>Live</span>
+    <a class="powered" href="https://flynet.org" target="_blank" rel="noopener">Powered by Flynet</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" aria-labelledby="h1">
+    <div>
+      <h1 id="h1">
+        <span class="unmask"><span>Where the city</span></span>
+        <span class="unmask"><span>is eating now.</span></span>
+      </h1>
+      <p class="lede">Covers reads live Blackbird check-ins and shows which rooms are filling up, neighborhood by neighborhood. Pick a city, then pick a table.</p>
+    </div>
+    <div class="ticker" aria-live="polite">
+      <div class="num" id="totalNum">0</div>
+      <div class="lbl">Covers in this window</div>
+      <div class="win" id="winNote"></div>
+    </div>
+  </section>
+
+  <nav class="rail" id="cityRail" aria-label="Choose a city"></nav>
+  <section class="board" id="board" aria-label="Live dining activity"></section>
+</main>
+
+<footer class="close">
+  <div class="wrap">
+    <div class="letter">
+      <p>This board is live. It breathes as people sit down. Every cover here is a real, verified check-in at a Blackbird restaurant, not a forecast or a guess.</p>
+      <p class="sig">See you at the table.</p>
+    </div>
+    <div class="credit">
+      <span>Live network data from <a href="https://flynet.org" target="_blank" rel="noopener">Flynet</a>, built on Blackbird.</span>
+      <span id="genAt"></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const DATA = __DATA__;
+
+const state = { city: 0 };
+const fmt = n => n.toLocaleString('en-US');
+
+function intensity(covers, max){
+  const r = max > 0 ? covers / max : 0;
+  return Math.round(34 + r * 66);
+}
+
+function render(){
+  const total = DATA.total || 0;
+  document.getElementById('winNote').textContent = 'Last ' + Math.round((DATA.windowMinutes||0)/60) + ' hours';
+  const gt = new Date(DATA.generatedAt);
+  document.getElementById('genAt').textContent = 'Data pulled ' + gt.toLocaleString('en-US', {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
+
+  // ticker
+  const numEl = document.getElementById('totalNum');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce){ numEl.textContent = fmt(total); }
+  else {
+    let cur = 0; const step = Math.max(1, Math.round(total / 42));
+    const t = setInterval(() => { cur += step; if (cur >= total){ cur = total; clearInterval(t); } numEl.textContent = fmt(cur); }, 22);
+  }
+
+  // rail
+  const rail = document.getElementById('cityRail');
+  rail.innerHTML = '';
+  DATA.cities.forEach((c, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-pressed', String(i === state.city));
+    b.innerHTML = c.name.replace(', CA','').replace(', CO','').replace(', SC','').replace(', NY','') + '<span class="c">' + fmt(c.covers) + '</span>';
+    b.addEventListener('click', () => { state.city = i; render(); });
+    rail.appendChild(b);
+  });
+
+  // board
+  const city = DATA.cities[state.city];
+  const board = document.getElementById('board');
+  const hoods = (city && city.neighborhoods) ? city.neighborhoods : [];
+  const maxHood = hoods.reduce((m,h) => Math.max(m, h.covers), 0);
+  board.innerHTML = '';
+
+  if (!hoods.length){
+    board.innerHTML = '<div class="empty"><b>Quiet right now.</b> No covers logged in this city in the current window. Try another city, or check back when the dinner rush starts.</div>';
+    return;
+  }
+
+  hoods.forEach(h => {
+    const sec = document.createElement('section');
+    sec.className = 'hood';
+    const pct = intensity(h.covers, maxHood);
+    let rows = '';
+    (h.venues||[]).forEach(v => {
+      const hot = v.visits >= 5 ? ' hot' : '';
+      const rel = relTime(v.last);
+      rows += '<a class="row'+hot+'" href="#"><span class="swatch" aria-hidden="true"></span><span class="nm">'+esc(v.name)+'</span><span class="cu">'+esc(v.cuisine||'Restaurant')+'</span><span class="v"><b>'+v.visits+'</b> covers<span>'+rel+'</span></span></a>';
+    });
+    sec.innerHTML =
+      '<div class="head"><div><h2>'+esc(h.name)+'</h2><div class="meta">'+esc(city.name)+'</div></div>'+
+      '<div class="count">'+fmt(h.covers)+'<small>covers</small></div></div>'+
+      '<div class="meter" role="img" aria-label="Activity '+pct+' percent of the busiest neighborhood"><i style="width:'+pct+'%"></i></div>'+
+      '<div class="rows">'+rows+'</div>';
+    board.appendChild(sec);
+  });
+}
+
+function esc(s){ return String(s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function relTime(iso){
+  if (!iso) return '';
+  const then = new Date(iso).getTime();
+  const mins = Math.max(0, Math.round((Date.now() - then) / 60000));
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + 'm ago';
+  const h = Math.floor(mins/60);
+  return h + 'h ' + (mins % 60) + 'm ago';
+}
+
+render();
+</script>
+</body>
+</html>
