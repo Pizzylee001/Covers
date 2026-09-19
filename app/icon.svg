@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#F3EEE2"/>
+  <!-- The masthead mark: a square with radii 50% 50% 50% 0, rotated -45deg,
+       ink fill. Sharp corner points straight down, pin-like. -->
+  <path fill="#0F241B" transform="translate(14 14) rotate(-45 18 18)" d="M 0 18 A 18 18 0 0 1 36 18 A 18 18 0 0 1 18 36 L 0 36 Z"/>
+</svg>

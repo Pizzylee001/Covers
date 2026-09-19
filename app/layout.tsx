@@ -16,7 +16,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Covers | where the city is eating now",
+  title: "Covers | Where The City Is Eating Now",
   description:
     "Live Blackbird check-ins, neighborhood by neighborhood. Pick a city, then pick a table.",
 };
